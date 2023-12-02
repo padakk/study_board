@@ -38,12 +38,18 @@ public class BoardController {
     }
 
     @GetMapping("/board/view")  // localhost:8080/board/view?id=1
-    public String boardView(Model model, @RequestParam(name = "id") Integer id) {
+    public String boardView(Model model, @RequestParam(name = "id") Integer id) {//@RequestParam(name = "id") 없으면 작동안함
 
 
         model.addAttribute("board", boardService.boardview(id));
         return "boardview";
     }
 
+    @GetMapping("/board/delete")
+    public String boardDelete(@RequestParam(name = "id") Integer id) {
 
+        boardService.boardDelete(id);
+
+        return "redirect:/board/list";
+    }
 }

@@ -14,12 +14,13 @@ public class Board {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //mysql 형식에 맞게
     private Integer id;
 
     private String title;
 
     private String content;
-    //mysql 형식에 맞게
+
     private String filename;
 
     private String filepath;
